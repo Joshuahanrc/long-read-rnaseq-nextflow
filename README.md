@@ -2,7 +2,7 @@
 
 This repository contains a Nextflow workflow developed for DSA4262 Assignment 1. It processes Oxford Nanopore long-read RNA-sequencing data using Minimap2, Samtools and Bambu.
 
-The workflow was adapted from Jonathan Göke's workshop workflow and extended to support multiple samples, protocol-specific alignment parameters, BAM sorting and indexing, alignment quality control, and Bambu runs with or without reference annotations.
+The workflow was adapted from Prof. Jonathan Göke's workshop workflow and extended to support multiple samples, protocol-specific alignment parameters, BAM sorting and indexing, alignment quality control, and Bambu runs with or without reference annotations.
 
 ## Workflow
 
