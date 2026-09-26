@@ -38,7 +38,11 @@ An example is provided in `samplesheet.example.csv`.
 
 ```bash
 nextflow run main.nf \
+    -name task5_with_annotations \
+    -ansi-log false \
     -with-report report_with_annotations.html \
+    -with-trace trace_with_annotations.txt \
+    -with-timeline timeline_with_annotations.html \
     --samples /absolute/path/to/samplesheet.csv \
     --refFa /absolute/path/to/reference.fa \
     --refGtf /absolute/path/to/reference.gtf \
@@ -52,8 +56,12 @@ Run this command from the same directory after completing the annotated run:
 
 ```bash
 nextflow run main.nf \
+    -name task5_without_annotations \
     -resume \
+    -ansi-log false \
     -with-report report_without_annotations.html \
+    -with-trace trace_without_annotations.txt \
+    -with-timeline timeline_without_annotations.html \
     --samples /absolute/path/to/samplesheet.csv \
     --refFa /absolute/path/to/reference.fa \
     --refGtf /absolute/path/to/reference.gtf \
@@ -73,6 +81,24 @@ The workflow produces:
 - Transcript-level read counts
 - Gene-level read counts
 - A saved Bambu `RangedSummarizedExperiment` object
+
+## Generating the QC summary
+
+The workflow produces separate `samtools flagstat` and `samtools stats` files for each sample. The supplied script combines their main measurements into one tab-separated table:
+
+```bash
+./scripts/summarise_qc.sh \
+    /absolute/path/to/results/qc \
+    qc_summary.tsv
+```
+
+The table can be displayed in a readable format using:
+
+```bash
+column -t -s $'\t' qc_summary.tsv
+```
+
+The summary includes the number of primary reads, number and percentage of primary mapped reads, secondary and supplementary alignments, mean and maximum read length, mean alignment quality and alignment error rate.
 
 ## Important note
 

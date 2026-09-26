@@ -32,3 +32,5 @@ timeline*.html
 
 # Operating-system files
 .DS_Store
+
+qc_summary.tsv
