@@ -1,0 +1,34 @@
+# Nextflow temporary and cache files
+work/
+.nextflow/
+.nextflow.log*
+.nextflow_history
+
+# Large sequencing and reference files
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.sam
+*.bam
+*.bai
+*.fa
+*.fasta
+*.fai
+*.gtf
+
+# Bambu and workflow results
+task5_results/
+results/
+*.rds
+counts_gene.txt
+counts_transcript.txt
+extended_annotations.gtf
+
+# Reports generated during execution
+*.html
+trace*.txt
+timeline*.html
+
+# Operating-system files
+.DS_Store
